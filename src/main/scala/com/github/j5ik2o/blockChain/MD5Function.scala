@@ -1,5 +1,4 @@
-package mbcs
-
+package com.github.j5ik2o.blockChain
 import java.security.MessageDigest
 
 object MD5Function {

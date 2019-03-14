@@ -1,8 +1,8 @@
-package mbcs
+package com.github.j5ik2o.blockChain
 
 object Proof {
 
-  val difficulty = 4
+  val difficulty = 1
 
   private def proofOfWork(lastProof: Proof): Proof = {
     Iterator

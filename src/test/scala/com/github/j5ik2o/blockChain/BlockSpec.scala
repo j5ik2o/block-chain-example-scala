@@ -1,7 +1,8 @@
-package mbcs
+package com.github.j5ik2o.blockChain
+
 import java.time.Instant
 
-import org.scalatest.{ FreeSpec, Matchers }
+import org.scalatest.{FreeSpec, Matchers}
 
 class BlockSpec extends FreeSpec with Matchers {
 

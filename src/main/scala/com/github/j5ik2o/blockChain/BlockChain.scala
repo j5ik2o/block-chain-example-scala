@@ -1,11 +1,11 @@
-package mbcs
+package com.github.j5ik2o.blockChain
 
 object BlockChain {
 
-  def apply(): BlockChain = new BlockChain(Seq(Block.genesisBlock))
+  def apply(): BlockChain = new BlockChain(Blocks(Block.genesisBlock))
 
-  def validate(chain: Seq[Block]): Boolean = {
-    chain.zip(chain.tail).forall {
+  def validate(chain: Blocks): Boolean = {
+    chain.values.zip(chain.values.tail).forall {
       case (p, s) =>
         s.validateBlock(p)
     }
@@ -13,7 +13,7 @@ object BlockChain {
 
 }
 
-case class BlockChain private (blocks: Seq[Block]) {
+case class BlockChain private (blocks: Blocks) {
 
   val headBlock: Block     = blocks.head
   val lastBlock: Block     = blocks.last
@@ -22,12 +22,12 @@ case class BlockChain private (blocks: Seq[Block]) {
 
   def newBlock(transactions: Transactions): (BlockChain, Block) = {
     val block = Block(lastBlock, lastBlock.proof.nextProof, transactions)
-    (BlockChain(blocks :+ block), block)
+    (BlockChain(blocks add block), block)
   }
 
   def validate: Boolean = BlockChain.validate(blocks)
 
-  def resolveConflicts(nodes: Seq[String], getFullChain: String => Seq[Block]): Option[BlockChain] = {
+  def resolveConflicts(nodes: Seq[String], getFullChain: String => Blocks): Option[BlockChain] = {
     nodes.toStream
       .map(getFullChain).find { fullChain =>
         fullChain.size > size && BlockChain.validate(fullChain)

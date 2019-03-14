@@ -1,4 +1,5 @@
-package mbcs
+package com.github.j5ik2o.blockChain
+
 import java.time.Instant
 
 case class Transaction(message: String,

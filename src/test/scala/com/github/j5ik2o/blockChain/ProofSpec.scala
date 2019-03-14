@@ -1,4 +1,5 @@
-package mbcs
+package com.github.j5ik2o.blockChain
+
 import org.scalatest.{FreeSpec, Matchers}
 
 class ProofSpec extends FreeSpec with Matchers {
