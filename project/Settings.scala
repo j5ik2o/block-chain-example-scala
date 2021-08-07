@@ -26,7 +26,7 @@ object Settings {
       Resolver.jcenterRepo,
       Resolver.sonatypeRepo("snapshots"),
       Resolver.sonatypeRepo("releases"),
-      "Seasar2 Repository" at "http://maven.seasar.org/maven2",
+      "Seasar2 Repository" at "https://maven.seasar.org/maven2",
       Resolver.bintrayRepo("danslapman", "maven"),
       "DynamoDB Local Repository" at "https://s3-us-west-2.amazonaws.com/dynamodb-local/release"
     ),

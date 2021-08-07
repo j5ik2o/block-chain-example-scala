@@ -1,4 +1,4 @@
-name := "block-chain-example"
+name := "block-chain-example-scala"
 
 version := "1.0.0-SNAPSHOT"
 
